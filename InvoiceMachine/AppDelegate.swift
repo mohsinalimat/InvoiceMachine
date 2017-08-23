@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        // [START setup_gidsignin]
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        // [END setup_gidsignin]
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application,
+                                                              didFinishLaunchingWithOptions:launchOptions)
         return true
     }
 
@@ -40,6 +51,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // [START new_delegate]
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            // [END new_delegate]
+            return self.application(application,
+                                    open: url,
+                                    // [START new_options]
+                sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                annotation: [:])
+    }
+    // [END new_options]
+    
+    // [START old_delegate]
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        // [END old_delegate]
+        if GIDSignIn.sharedInstance().handle(url,
+                                             sourceApplication: sourceApplication,
+                                             annotation: annotation) {
+            return true
+        }
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+                                                                     open: url,
+                                                                     // [START old_options]
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+    }
+    // [END old_options]
+
+    
+    
+    // [START headless_google_auth]
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // [START_EXCLUDE]
+        guard let controller = GIDSignIn.sharedInstance().uiDelegate as? SignInViewController else { return }
+        // [END_EXCLUDE]
+        if let error = error {
+            // [START_EXCLUDE]
+           // controller.showMessagePrompt(error.localizedDescription)
+            // [END_EXCLUDE]
+            return
+        }
+        
+        // [START google_credential]
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        // [END google_credential]
+        // [START_EXCLUDE]
+        controller.firebaseLogin(credential)
+        // [END_EXCLUDE]
+    }
+    // [END headless_google_auth]
 
 
 }

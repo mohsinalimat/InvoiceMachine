@@ -7,7 +7,25 @@
 		<key>InvoiceMachine.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>9</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6CE93F2B1F4C3FCA00FE4BA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CE93F411F4C3FCA00FE4BA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CE93F4C1F4C3FCA00FE4BA0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
