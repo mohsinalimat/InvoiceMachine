@@ -16,6 +16,11 @@ import FBSDKLoginKit
 
 @objc(SignInViewController)
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
+    
+    
+    fileprivate struct Storyboard{
+        static let mainScreenSegueIdentifier = "MainScreen"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,13 +71,14 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         
         if let user = Auth.auth().currentUser {
             // [START link_credential]
-            user.link(with: credential) { (user, error) in
+            user.link(with: credential) { [weak self] (user, error) in
                 // [START_EXCLUDE]
                 LoadingIndicator.hide()
                 if let error = error {
-                    //self.showMessagePrompt(error.localizedDescription)
+                    self?.showMessagePrompt(error.localizedDescription)
                     return
                 }
+                self?.performSegue(withIdentifier: Storyboard.mainScreenSegueIdentifier, sender: nil)
                 // [END_EXCLUDE]
             }
             // [END link_credential]
@@ -84,7 +90,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                 // [END_EXCLUDE]
                 if let error = error {
                     // [START_EXCLUDE]
-                    //self.showMessagePrompt(error.localizedDescription)
+                    self.showMessagePrompt(error.localizedDescription)
                     // [END_EXCLUDE]
                     return
                 }
