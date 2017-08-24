@@ -14,7 +14,7 @@ class MainViewController: UITabBarController {
     
     
     fileprivate struct Storyboard{
-        static let loginSegueIdentifier = "Login"
+        static let loginScreenSegueIdentifier = "LoginScreen"
     }
 
     override func viewDidLoad() {
@@ -23,7 +23,7 @@ class MainViewController: UITabBarController {
             if let user = user {
                 // TODO: User is signed in.
             } else {
-                self?.performSegue(withIdentifier: Storyboard.loginSegueIdentifier, sender: nil)
+                self?.performSegue(withIdentifier: Storyboard.loginScreenSegueIdentifier, sender: nil)
             }
         }
     }
@@ -33,15 +33,5 @@ class MainViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

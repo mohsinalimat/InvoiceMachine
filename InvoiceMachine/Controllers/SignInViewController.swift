@@ -68,7 +68,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
     func firebaseLogin(_ credential: AuthCredential) {
         LoadingIndicator.show()
-        
         if let user = Auth.auth().currentUser {
             // [START link_credential]
             user.link(with: credential) { [weak self] (user, error) in
@@ -84,17 +83,18 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             // [END link_credential]
         } else {
             // [START signin_credential]
-            Auth.auth().signIn(with: credential) { (user, error) in
+            Auth.auth().signIn(with: credential) { [weak self] (user, error) in
                 // [START_EXCLUDE silent]
                 LoadingIndicator.hide()
                 // [END_EXCLUDE]
                 if let error = error {
                     // [START_EXCLUDE]
-                    self.showMessagePrompt(error.localizedDescription)
+                    self?.showMessagePrompt(error.localizedDescription)
                     // [END_EXCLUDE]
                     return
                 }
                 // User is signed in
+                self?.performSegue(withIdentifier: Storyboard.mainScreenSegueIdentifier, sender: nil)
                 // [START_EXCLUDE]
                 // Merge prevUser and currentUser accounts and data
                 // ...
