@@ -6,6 +6,7 @@ target 'InvoiceMachine' do
   platform :ios, '8.0'
 
   # Pods for InvoiceMachine
+  pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'

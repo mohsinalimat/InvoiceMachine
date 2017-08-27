@@ -17,7 +17,8 @@ import FBSDKLoginKit
 @objc(SignInViewController)
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
-    
+    lazy var ref: DatabaseReference = Database.database().reference()
+
     fileprivate struct Storyboard{
         static let mainScreenSegueIdentifier = "MainScreen"
     }
@@ -65,6 +66,32 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     }
     */
     
+    func saveUserInfo(_ user: Firebase.User, withEmail email: String, withDisplayName displayName: String, withPhotoURL photoURL: String) {
+        
+        // Create a change request
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = displayName
+        changeRequest?.photoURL = URL(string: photoURL)
+        
+        // Commit profile changes to server
+        changeRequest?.commitChanges() { (error) in
+            
+            LoadingIndicator.hide()
+            
+            if let error = error {
+                self.showMessagePrompt(error.localizedDescription)
+                return
+            }
+            
+            // [START basic_write]
+            self.ref.child("users").child(user.uid).setValue(["displayName": displayName, "photoURL": photoURL, "email": email])
+            // [END basic_write]
+            self.performSegue(withIdentifier: Storyboard.mainScreenSegueIdentifier, sender: nil)
+
+        }
+        
+    }
+    
     
     func firebaseLogin(_ credential: AuthCredential) {
         LoadingIndicator.show()
@@ -85,20 +112,17 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             // [START signin_credential]
             Auth.auth().signIn(with: credential) { [weak self] (user, error) in
                 // [START_EXCLUDE silent]
-                LoadingIndicator.hide()
-                // [END_EXCLUDE]
-                if let error = error {
-                    // [START_EXCLUDE]
-                    self?.showMessagePrompt(error.localizedDescription)
-                    // [END_EXCLUDE]
+             
+                guard let user = user, error == nil, let userInfo = user.providerData.first else {
+                    self?.showMessagePrompt(error!.localizedDescription)
+                    LoadingIndicator.hide()
                     return
                 }
-                // User is signed in
-                self?.performSegue(withIdentifier: Storyboard.mainScreenSegueIdentifier, sender: nil)
-                // [START_EXCLUDE]
-                // Merge prevUser and currentUser accounts and data
-                // ...
-                // [END_EXCLUDE]
+                
+                let email = userInfo.email ?? ""
+                let displayName = userInfo.displayName ?? ""
+                let photoURL = userInfo.photoURL?.absoluteString ?? ""
+                self?.saveUserInfo(user,withEmail: email, withDisplayName: displayName, withPhotoURL: photoURL)
             }
             // [END signin_credential]
         }
