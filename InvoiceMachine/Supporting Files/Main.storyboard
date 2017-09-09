@@ -25,26 +25,167 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sk9-9A-9YA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-157" y="-641"/>
+            <point key="canvasLocation" x="-1111" y="295"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="eNg-Zi-A63">
+        <!--Item-->
+        <scene sceneID="66g-8L-gp6">
             <objects>
-                <viewController id="gnl-Nv-QIi" sceneMemberID="viewController">
+                <navigationController id="Jsm-81-Z6O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="U46-SP-i82"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="56U-3r-nz0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Hp8-qc-vb9" kind="relationship" relationship="rootViewController" id="8Gu-hh-ElR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WLP-iG-me0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="-970"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0rC-vf-DTH">
+            <objects>
+                <viewController id="Hp8-qc-vb9" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xt3-JD-Tf2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ff9-qY-KhZ"/>
+                        <viewControllerLayoutGuide type="top" id="Xno-hw-aoR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rtt-fb-exg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8oy-X6-reA">
+                    <view key="view" contentMode="scaleToFill" id="0PO-WN-2qN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="kqO-mD-5Uy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kqO-mD-5Uy" firstAttribute="leading" secondItem="0PO-WN-2qN" secondAttribute="leading" id="Gcl-K0-Hh6"/>
+                            <constraint firstAttribute="trailing" secondItem="kqO-mD-5Uy" secondAttribute="trailing" id="Jz8-c6-Rw5"/>
+                            <constraint firstItem="kqO-mD-5Uy" firstAttribute="top" secondItem="Xno-hw-aoR" secondAttribute="bottom" id="Ll4-nR-XKe"/>
+                            <constraint firstItem="Rtt-fb-exg" firstAttribute="top" secondItem="kqO-mD-5Uy" secondAttribute="bottom" id="dhy-fj-T6j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dfk-ql-GxK">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ZMu-IS-YuQ">
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Unpaid"/>
+                                <segment title="Paid"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="d9X-HD-Ogr">
+                            <connections>
+                                <segue destination="IGp-uQ-aga" kind="presentation" id="nFn-RL-Vd8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDN-Qj-Hnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1362" y="-970"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QbK-Q5-B88">
+            <objects>
+                <navigationController id="IGp-uQ-aga" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C0Y-Xl-zn3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SjS-ru-oap" kind="relationship" relationship="rootViewController" id="ckW-xm-dSL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8w-Gt-Aaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2303" y="-970"/>
+        </scene>
+        <!--Invoice-->
+        <scene sceneID="FgV-4l-RWJ">
+            <objects>
+                <viewController id="SjS-ru-oap" customClass="AddOrEditViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LfH-b1-C2K"/>
+                        <viewControllerLayoutGuide type="bottom" id="pPj-dI-cug"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eaG-FF-e0n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-Qj-TFz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pPj-dI-cug" firstAttribute="top" secondItem="W7w-Qj-TFz" secondAttribute="bottom" id="FhV-2w-Ncs"/>
+                            <constraint firstItem="W7w-Qj-TFz" firstAttribute="top" secondItem="LfH-b1-C2K" secondAttribute="bottom" constant="-64" id="Sqo-g6-DBe"/>
+                            <constraint firstAttribute="trailing" secondItem="W7w-Qj-TFz" secondAttribute="trailing" id="ZEi-Q8-KD7"/>
+                            <constraint firstItem="W7w-Qj-TFz" firstAttribute="leading" secondItem="eaG-FF-e0n" secondAttribute="leading" id="g6l-Ed-iWa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="W7w-Qj-TFz"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Invoice" id="ljv-BA-nx7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8zL-1u-bRk">
+                            <connections>
+                                <action selector="cancel:" destination="SjS-ru-oap" id="40D-yP-KEU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dew-tJ-UuL"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Kzq-Rt-L9H" kind="show" identifier="ClientViewControllerSegue" id="j6K-Xx-KnH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4v-94-P7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3302" y="-998"/>
+        </scene>
+        <!--Client-->
+        <scene sceneID="g2T-pd-quI">
+            <objects>
+                <viewController id="Kzq-Rt-L9H" customClass="ClientViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v76-YV-Anb"/>
+                        <viewControllerLayoutGuide type="bottom" id="wVi-Ty-Gzt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ThY-b4-iYT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Wu-6N-1xI">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem id="GqJ-UG-0ny"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="H5i-op-Piu"/>
+                                    <barButtonItem title="Choose from client list" id="pd1-5j-eL2"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="l8i-yh-vbj"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="hfI-hY-SzH"/>
+                    <navigationItem key="navigationItem" title="Client" id="a2A-D1-3Ng">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dg4-rj-bYK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oxZ-mh-hin"/>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oN4-zQ-a3N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mss-Pf-jHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-157" y="-1297"/>
+            <point key="canvasLocation" x="4126" y="-984"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tt1-ry-u9b">
@@ -56,9 +197,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gnl-Nv-QIi" kind="relationship" relationship="viewControllers" id="MPE-ba-6A0"/>
-                        <segue destination="jNe-67-JLX" kind="relationship" relationship="viewControllers" id="B6B-fN-4n2"/>
                         <segue destination="Gab-ap-ORS" kind="show" identifier="LoginScreen" id="yfE-Hx-EvT"/>
+                        <segue destination="Jsm-81-Z6O" kind="relationship" relationship="viewControllers" id="6UI-xT-LIQ"/>
+                        <segue destination="jNe-67-JLX" kind="relationship" relationship="viewControllers" id="bgi-qq-9gB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dU4-Dc-L6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -94,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kd-Dx-6TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1327" y="-134"/>
+            <point key="canvasLocation" x="-2162" y="-402"/>
         </scene>
     </scenes>
 </document>

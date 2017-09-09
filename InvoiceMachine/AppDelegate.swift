@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // [END_EXCLUDE]
         if let error = error {
             // [START_EXCLUDE]
-            controller.showMessagePrompt(error.localizedDescription)
+            //controller.showMessagePrompt(error.localizedDescription)
             // [END_EXCLUDE]
             return
         }

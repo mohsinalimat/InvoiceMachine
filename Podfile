@@ -14,6 +14,7 @@ target 'InvoiceMachine' do
   pod 'R.swift'
   pod 'RxCocoa'
   pod 'RxSwift'
+  pod 'Eureka'
 
 
   target 'InvoiceMachineTests' do
