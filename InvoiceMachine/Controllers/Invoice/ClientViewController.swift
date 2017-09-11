@@ -31,14 +31,24 @@ class ClientViewController: FormViewController {
     
     
     private func initializeForm() {
+        
+        TextRow.defaultCellUpdate = { cell, row in
+            if !row.isValid {
+                cell.titleLabel?.textColor = .red
+            }
+        }
         form +++
             
-            TextRow("Title").cellSetup { cell, row in
-                cell.textField.placeholder = row.tag
+            TextRow("Name").cellSetup { cell, row in
+                row.title = row.tag
+                cell.textField.placeholder = "Required"
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChangeAfterBlurred
             }
-            
-            <<< TextRow("Location").cellSetup {
-                $1.cell.textField.placeholder = $0.row.tag
+            <<< TextRow("Email").cellSetup { cell, row in
+                row.title = row.tag
+                row.add(rule: RuleEmail())
+                row.validationOptions = .validatesOnChangeAfterBlurred
             }
             
             +++
