@@ -80,7 +80,7 @@
                                 <segment title="Paid"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="+" id="d9X-HD-Ogr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="d9X-HD-Ogr">
                             <connections>
                                 <segue destination="IGp-uQ-aga" kind="presentation" id="nFn-RL-Vd8"/>
                             </connections>
@@ -94,13 +94,17 @@
         <!--Navigation Controller-->
         <scene sceneID="QbK-Q5-B88">
             <objects>
-                <navigationController id="IGp-uQ-aga" sceneMemberID="viewController">
+                <navigationController hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="IGp-uQ-aga" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="C0Y-Xl-zn3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="HkA-4m-Z5A">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="SjS-ru-oap" kind="relationship" relationship="rootViewController" id="ckW-xm-dSL"/>
+                        <segue destination="98T-CN-8cL" kind="relationship" relationship="rootViewController" id="KfS-6M-QsG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8w-Gt-Aaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,84 +112,62 @@
             <point key="canvasLocation" x="2303" y="-970"/>
         </scene>
         <!--Invoice-->
-        <scene sceneID="FgV-4l-RWJ">
+        <scene sceneID="0T8-OP-FUX">
             <objects>
-                <viewController id="SjS-ru-oap" customClass="AddOrEditViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="98T-CN-8cL" customClass="AddOrEditViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LfH-b1-C2K"/>
-                        <viewControllerLayoutGuide type="bottom" id="pPj-dI-cug"/>
+                        <viewControllerLayoutGuide type="top" id="Zgq-Zb-J4m"/>
+                        <viewControllerLayoutGuide type="bottom" id="o3J-IL-Mzi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eaG-FF-e0n">
+                    <view key="view" contentMode="scaleToFill" id="jyp-nS-u33">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-Qj-TFz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="pPj-dI-cug" firstAttribute="top" secondItem="W7w-Qj-TFz" secondAttribute="bottom" id="FhV-2w-Ncs"/>
-                            <constraint firstItem="W7w-Qj-TFz" firstAttribute="top" secondItem="LfH-b1-C2K" secondAttribute="bottom" constant="-64" id="Sqo-g6-DBe"/>
-                            <constraint firstAttribute="trailing" secondItem="W7w-Qj-TFz" secondAttribute="trailing" id="ZEi-Q8-KD7"/>
-                            <constraint firstItem="W7w-Qj-TFz" firstAttribute="leading" secondItem="eaG-FF-e0n" secondAttribute="leading" id="g6l-Ed-iWa"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="W7w-Qj-TFz"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Invoice" id="ljv-BA-nx7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8zL-1u-bRk">
+                    <navigationItem key="navigationItem" title="Invoice" id="hN1-mj-Wma">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zMQ-Ug-2Bd">
                             <connections>
-                                <action selector="cancel:" destination="SjS-ru-oap" id="40D-yP-KEU"/>
+                                <action selector="cancel:" destination="98T-CN-8cL" id="hzR-kt-wb5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dew-tJ-UuL"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="5oA-aG-Vkn"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="Kzq-Rt-L9H" kind="show" identifier="ClientViewControllerSegue" id="j6K-Xx-KnH"/>
+                        <segue destination="no1-jX-xu9" kind="show" identifier="ClientViewControllerSegue" id="NCn-aE-3Es"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L4v-94-P7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1W-mz-6Gz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3302" y="-998"/>
+            <point key="canvasLocation" x="3265" y="-970"/>
         </scene>
         <!--Client-->
-        <scene sceneID="g2T-pd-quI">
+        <scene sceneID="weW-fp-40B">
             <objects>
-                <viewController id="Kzq-Rt-L9H" customClass="ClientViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="no1-jX-xu9" customClass="ClientViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="v76-YV-Anb"/>
-                        <viewControllerLayoutGuide type="bottom" id="wVi-Ty-Gzt"/>
+                        <viewControllerLayoutGuide type="top" id="iPD-Ka-hfk"/>
+                        <viewControllerLayoutGuide type="bottom" id="faT-t7-g8T"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ThY-b4-iYT">
+                    <view key="view" contentMode="scaleToFill" id="7xJ-ZS-l1s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Wu-6N-1xI">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem id="GqJ-UG-0ny"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="H5i-op-Piu"/>
-                                    <barButtonItem title="Choose from client list" id="pd1-5j-eL2"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="l8i-yh-vbj"/>
-                                </items>
-                            </toolbar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Client" id="a2A-D1-3Ng">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dg4-rj-bYK"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oxZ-mh-hin"/>
+                    <toolbarItems>
+                        <barButtonItem id="HJk-od-6CL"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8Da-bl-Uoo"/>
+                        <barButtonItem title="Choose from client list" id="YVf-Ss-uyE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="8Zy-B0-gqm"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Client" id="yNG-f6-LgG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vts-4j-Z8b"/>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mss-Pf-jHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XPV-4x-YVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4126" y="-984"/>
+            <point key="canvasLocation" x="4177" y="-970"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tt1-ry-u9b">

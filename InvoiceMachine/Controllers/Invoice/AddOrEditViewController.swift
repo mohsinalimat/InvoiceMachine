@@ -27,6 +27,10 @@ class AddOrEditViewController: FormViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: false)
+    }
+    
     private func initializeForm() {
         
         form +++
