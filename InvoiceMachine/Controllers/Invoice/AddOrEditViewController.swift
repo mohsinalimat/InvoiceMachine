@@ -11,12 +11,7 @@ import Eureka
 
 class AddOrEditViewController: FormViewController {
     
-    @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true) {
-            
-        }
-    }
-    
+
     fileprivate struct Storyboard{
         static let ClientViewControllerSegueIdentifier = "ClientViewControllerSegue"
     }

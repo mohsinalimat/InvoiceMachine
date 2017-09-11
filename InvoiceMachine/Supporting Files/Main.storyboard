@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L1l-6b-bAg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="L1l-6b-bAg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sk9-9A-9YA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1111" y="295"/>
+            <point key="canvasLocation" x="-694.375" y="327.94166666666666"/>
         </scene>
         <!--Item-->
         <scene sceneID="66g-8L-gp6">
@@ -42,7 +42,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLP-iG-me0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="-970"/>
+            <point key="canvasLocation" x="155.625" y="-1078.3166666666666"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0rC-vf-DTH">
@@ -82,14 +82,14 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="d9X-HD-Ogr">
                             <connections>
-                                <segue destination="IGp-uQ-aga" kind="presentation" id="nFn-RL-Vd8"/>
+                                <segue destination="IGp-uQ-aga" kind="modal" id="nFn-RL-Vd8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZDN-Qj-Hnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362" y="-970"/>
+            <point key="canvasLocation" x="851.25" y="-1078.3166666666666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QbK-Q5-B88">
@@ -109,7 +109,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8w-Gt-Aaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2303" y="-970"/>
+            <point key="canvasLocation" x="1439.375" y="-1078.3166666666666"/>
         </scene>
         <!--Invoice-->
         <scene sceneID="0T8-OP-FUX">
@@ -122,7 +122,19 @@
                     <view key="view" contentMode="scaleToFill" id="jyp-nS-u33">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="4UN-WK-ZP4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4UN-WK-ZP4" firstAttribute="top" secondItem="Zgq-Zb-J4m" secondAttribute="bottom" constant="-64" id="0gW-KI-Sb6"/>
+                            <constraint firstItem="4UN-WK-ZP4" firstAttribute="leading" secondItem="jyp-nS-u33" secondAttribute="leading" id="Q9o-NQ-ivl"/>
+                            <constraint firstAttribute="trailing" secondItem="4UN-WK-ZP4" secondAttribute="trailing" id="QzS-O1-Y6y"/>
+                            <constraint firstItem="o3J-IL-Mzi" firstAttribute="top" secondItem="4UN-WK-ZP4" secondAttribute="bottom" id="Zrf-9x-mq0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Invoice" id="hN1-mj-Wma">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zMQ-Ug-2Bd">
@@ -133,12 +145,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="5oA-aG-Vkn"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="no1-jX-xu9" kind="show" identifier="ClientViewControllerSegue" id="NCn-aE-3Es"/>
+                        <outlet property="tableView" destination="4UN-WK-ZP4" id="pQN-61-yL5"/>
+                        <segue destination="no1-jX-xu9" kind="push" identifier="ClientViewControllerSegue" id="NCn-aE-3Es"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1W-mz-6Gz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3265" y="-970"/>
+            <point key="canvasLocation" x="2040.625" y="-1078.3166666666666"/>
         </scene>
         <!--Client-->
         <scene sceneID="weW-fp-40B">
@@ -151,7 +164,19 @@
                     <view key="view" contentMode="scaleToFill" id="7xJ-ZS-l1s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lpi-SK-PEg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lpi-SK-PEg" firstAttribute="top" secondItem="iPD-Ka-hfk" secondAttribute="bottom" constant="-64" id="23P-lM-sa9"/>
+                            <constraint firstItem="lpi-SK-PEg" firstAttribute="leading" secondItem="7xJ-ZS-l1s" secondAttribute="leading" id="baj-Dj-pyw"/>
+                            <constraint firstAttribute="trailing" secondItem="lpi-SK-PEg" secondAttribute="trailing" id="lgT-H9-Cki"/>
+                            <constraint firstItem="faT-t7-g8T" firstAttribute="top" secondItem="lpi-SK-PEg" secondAttribute="bottom" id="tEe-tc-405"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem id="HJk-od-6CL"/>
@@ -164,10 +189,13 @@
                     <navigationItem key="navigationItem" title="Client" id="yNG-f6-LgG">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vts-4j-Z8b"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="lpi-SK-PEg" id="HQb-UN-WMY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPV-4x-YVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4177" y="-970"/>
+            <point key="canvasLocation" x="2610.625" y="-1078.3166666666666"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tt1-ry-u9b">
@@ -179,14 +207,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Gab-ap-ORS" kind="show" identifier="LoginScreen" id="yfE-Hx-EvT"/>
+                        <segue destination="Gab-ap-ORS" kind="modal" identifier="LoginScreen" id="yfE-Hx-EvT"/>
                         <segue destination="Jsm-81-Z6O" kind="relationship" relationship="viewControllers" id="6UI-xT-LIQ"/>
                         <segue destination="jNe-67-JLX" kind="relationship" relationship="viewControllers" id="bgi-qq-9gB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dU4-Dc-L6y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="-970"/>
+            <point key="canvasLocation" x="-693.75" y="-1078.3166666666666"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="2Bj-1M-DAw">
@@ -212,12 +240,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="L1l-6b-bAg" kind="show" identifier="MainScreen" id="POW-Qu-TFa"/>
+                        <segue destination="L1l-6b-bAg" kind="modal" identifier="MainScreen" id="POW-Qu-TFa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7kd-Dx-6TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2162" y="-402"/>
+            <point key="canvasLocation" x="-1351.25" y="-446.88999999999999"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
 </document>
