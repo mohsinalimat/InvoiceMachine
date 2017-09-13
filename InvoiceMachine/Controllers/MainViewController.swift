@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import XLSwiftKit
 
 class MainViewController: UITabBarController {
     
@@ -22,6 +22,8 @@ class MainViewController: UITabBarController {
         Auth.auth().addStateDidChangeListener  { [weak self] (auth, user)  in
             if let user = user {
                 // TODO: User is signed in.
+                self?.showError( user.displayName ?? "")
+                
             } else {
                 self?.performSegue(withIdentifier: Storyboard.loginScreenSegueIdentifier, sender: nil)
             }

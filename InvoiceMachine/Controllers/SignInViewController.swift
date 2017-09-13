@@ -13,6 +13,7 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import XLSwiftKit
 
 @objc(SignInViewController)
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
@@ -45,7 +46,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         let loginManager = FBSDKLoginManager()
         loginManager.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
             if let error = error {
-               // self.showMessagePrompt(error.localizedDescription)
+                self.showError(error.localizedDescription)
             } else if result!.isCancelled {
                 print("FBLogin cancelled")
             } else {
@@ -79,7 +80,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             LoadingIndicator.hide()
             
             if let error = error {
-               // self.showMessagePrompt(error.localizedDescription)
+                self.showError(error.localizedDescription)
                 return
             }
             
@@ -101,7 +102,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                 // [START_EXCLUDE]
                 LoadingIndicator.hide()
                 if let error = error {
-                 //   self?.showMessagePrompt(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                     return
                 }
                 self?.performSegue(withIdentifier: Storyboard.mainScreenSegueIdentifier, sender: nil)
@@ -114,7 +115,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                 // [START_EXCLUDE silent]
              
                 guard let user = user, error == nil, let userInfo = user.providerData.first else {
-                  //  self?.showMessagePrompt(error!.localizedDescription)
+                    self?.showError(error!.localizedDescription)
                     LoadingIndicator.hide()
                     return
                 }

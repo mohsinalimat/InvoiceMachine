@@ -139,7 +139,7 @@
                     <navigationItem key="navigationItem" title="Invoice" id="hN1-mj-Wma">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zMQ-Ug-2Bd">
                             <connections>
-                                <action selector="cancel:" destination="98T-CN-8cL" id="hzR-kt-wb5"/>
+                                <action selector="cancelTapped:" destination="98T-CN-8cL" id="K8Z-9w-4WF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="5oA-aG-Vkn"/>
@@ -147,11 +147,33 @@
                     <connections>
                         <outlet property="tableView" destination="4UN-WK-ZP4" id="pQN-61-yL5"/>
                         <segue destination="no1-jX-xu9" kind="push" identifier="ClientViewControllerSegue" id="NCn-aE-3Es"/>
+                        <segue destination="4lX-qx-qxP" kind="push" identifier="InvoiceItemViewControllerSegue" id="ije-uL-Yv8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1W-mz-6Gz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2040.625" y="-1078.3166666666666"/>
+        </scene>
+        <!--Invoice Item-->
+        <scene sceneID="5bl-D6-GeY">
+            <objects>
+                <viewController id="4lX-qx-qxP" customClass="InvoiceItemViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fii-2G-0wV"/>
+                        <viewControllerLayoutGuide type="bottom" id="CxM-CH-Z5h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lrL-sy-L6p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Invoice Item" id="0EY-WJ-7Yy">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="37e-TX-c1c"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Znk-Gh-o8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2578" y="-763"/>
         </scene>
         <!--Client-->
         <scene sceneID="weW-fp-40B">
@@ -187,7 +209,11 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8Zy-B0-gqm"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Client" id="yNG-f6-LgG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vts-4j-Z8b"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vts-4j-Z8b">
+                            <connections>
+                                <action selector="saveTapped:" destination="no1-jX-xu9" id="pjl-kl-ZuC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lpi-SK-PEg" id="HQb-UN-WMY"/>
@@ -195,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPV-4x-YVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2610.625" y="-1078.3166666666666"/>
+            <point key="canvasLocation" x="2560" y="-1504"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tt1-ry-u9b">

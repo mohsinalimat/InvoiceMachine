@@ -1,17 +1,16 @@
 //
-//  InvoiceItemCell.swift
+//  ClientCell.swift
 //  InvoiceMachine
 //
-//  Created by Huy Ta on 9/9/17.
+//  Created by Huy Ta on 9/13/17.
 //  Copyright © 2017 njen. All rights reserved.
 //
-
 import Foundation
 import Eureka
 
-final class InvoiceItemCell: Cell<InvoiceItem>, CellType {
+final class ClientCell: Cell<Client>, CellType {
     
-
+    
     
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemValue: UILabel!
@@ -27,22 +26,10 @@ final class InvoiceItemCell: Cell<InvoiceItem>, CellType {
         super.setup()
         // we do not want our cell to be selected in this case. If you use such a cell in a list then you might want to change this.
         selectionStyle = .none
+        itemValue.text = ""
+        itemName.text = "Client"
         
-    
         
-        // define fonts for our labels
-        
-        itemValue.font = .systemFont(ofSize: 18)
-        itemName.font = .systemFont(ofSize: 13.3)
-        itemName.font = .systemFont(ofSize: 13.3)
-        
-        // set the textColor for our labels
-        for label in [itemName ] {
-            label?.textColor = .gray
-        }
-                
-        // set a light background color for our cell
-        backgroundColor = UIColor(red:0.984, green:0.988, blue:0.976, alpha:1.00)
     }
     
     override func update() {
@@ -54,19 +41,18 @@ final class InvoiceItemCell: Cell<InvoiceItem>, CellType {
         // get the value from our row
         guard let item = row.value else { return }
         
-        itemValue.text = "$\(item.amount) \u{0009}"
-        itemName.text = item.description
+        itemValue.text = item.name
     }
 }
 
 
-final class InvoiceItemRow: Row<InvoiceItemCell>, RowType {
+final class ClientRow: Row<ClientCell>, RowType {
     
     open var presentationMode: PresentationMode<UIViewController>?
     
     required init(tag: String?) {
         super.init(tag: tag)
-        cellProvider = CellProvider<InvoiceItemCell>(nibName: "InvoiceItemCell")
+        cellProvider = CellProvider<ClientCell>(nibName: "ClientCell")
     }
     
     open override func customDidSelect() {

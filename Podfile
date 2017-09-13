@@ -15,6 +15,7 @@ target 'InvoiceMachine' do
   pod 'RxCocoa'
   pod 'RxSwift'
   pod 'Eureka'
+  pod 'XLSwiftKit'
 
 
   target 'InvoiceMachineTests' do
