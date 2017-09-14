@@ -16,6 +16,15 @@
 		6C510E881F639F8200075C6C /* InvoiceItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C510E871F639F8200075C6C /* InvoiceItemCell.swift */; };
 		6C510E8F1F63AD2900075C6C /* InvoiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C510E8E1F63AD2900075C6C /* InvoiceItemCell.xib */; };
 		6C510E911F63E9B800075C6C /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C510E901F63E9B800075C6C /* ClientViewController.swift */; };
+		6C5BC62E1F69EB6C00FA0679 /* SearchClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC62D1F69EB6C00FA0679 /* SearchClientViewController.swift */; };
+		6C5BC6301F69EBDF00FA0679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC62F1F69EBDF00FA0679 /* ViewController.swift */; };
+		6C5BC6351F69ED9700FA0679 /* RxTableViewSectionedReloadDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC6341F69ED9700FA0679 /* RxTableViewSectionedReloadDataSource.swift */; };
+		6C5BC6371F69EDE600FA0679 /* SectionModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC6361F69EDE600FA0679 /* SectionModelType.swift */; };
+		6C5BC6391F69EE2000FA0679 /* TableViewSectionedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC6381F69EE2000FA0679 /* TableViewSectionedDataSource.swift */; };
+		6C5BC63B1F69EE7500FA0679 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC63A1F69EE7500FA0679 /* SectionModel.swift */; };
+		6C5BC63D1F69EF2F00FA0679 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC63C1F69EF2F00FA0679 /* Array+Extensions.swift */; };
+		6C5BC6421F69F24700FA0679 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BC6411F69F24700FA0679 /* Client.storyboard */; };
+		6C5BC6441F69F28500FA0679 /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BC6431F69F28500FA0679 /* Invoice.storyboard */; };
 		6C722E0E1F5FEC5A006DD0DC /* AddOrEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C722E0D1F5FEC5A006DD0DC /* AddOrEditViewController.swift */; };
 		6C86B5131F5FE4CF0046138B /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5121F5FE4CF0046138B /* InvoiceViewController.swift */; };
 		6CCFFF7E1F4D965600B32520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CCFFF7D1F4D965600B32520 /* LaunchScreen.storyboard */; };
@@ -66,6 +75,15 @@
 		6C510E871F639F8200075C6C /* InvoiceItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceItemCell.swift; sourceTree = "<group>"; };
 		6C510E8E1F63AD2900075C6C /* InvoiceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoiceItemCell.xib; sourceTree = "<group>"; };
 		6C510E901F63E9B800075C6C /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientViewController.swift; path = Invoice/ClientViewController.swift; sourceTree = "<group>"; };
+		6C5BC62D1F69EB6C00FA0679 /* SearchClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchClientViewController.swift; path = Invoice/SearchClientViewController.swift; sourceTree = "<group>"; };
+		6C5BC62F1F69EBDF00FA0679 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C5BC6341F69ED9700FA0679 /* RxTableViewSectionedReloadDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxTableViewSectionedReloadDataSource.swift; path = "RxDataSources/DataSources+Rx/RxTableViewSectionedReloadDataSource.swift"; sourceTree = "<group>"; };
+		6C5BC6361F69EDE600FA0679 /* SectionModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionModelType.swift; path = RxDataSources/DataSources/SectionModelType.swift; sourceTree = "<group>"; };
+		6C5BC6381F69EE2000FA0679 /* TableViewSectionedDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewSectionedDataSource.swift; path = RxDataSources/DataSources/TableViewSectionedDataSource.swift; sourceTree = "<group>"; };
+		6C5BC63A1F69EE7500FA0679 /* SectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionModel.swift; path = RxDataSources/DataSources/SectionModel.swift; sourceTree = "<group>"; };
+		6C5BC63C1F69EF2F00FA0679 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "RxDataSources/DataSources/Array+Extensions.swift"; sourceTree = "<group>"; };
+		6C5BC6411F69F24700FA0679 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Client.storyboard; path = Invoice/Client.storyboard; sourceTree = "<group>"; };
+		6C5BC6431F69F28500FA0679 /* Invoice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Invoice.storyboard; path = Invoice/Invoice.storyboard; sourceTree = "<group>"; };
 		6C722E0D1F5FEC5A006DD0DC /* AddOrEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddOrEditViewController.swift; path = Invoice/AddOrEditViewController.swift; sourceTree = "<group>"; };
 		6C86B5121F5FE4CF0046138B /* InvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceViewController.swift; path = Invoice/InvoiceViewController.swift; sourceTree = "<group>"; };
 		6CCFFF7D1F4D965600B32520 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,13 +171,52 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		6C5BC6311F69ECC800FA0679 /* RxDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BC6331F69ECE600FA0679 /* DataSources+Rx */,
+				6C5BC6321F69ECD600FA0679 /* DataSources */,
+			);
+			name = RxDataSources;
+			sourceTree = "<group>";
+		};
+		6C5BC6321F69ECD600FA0679 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BC6361F69EDE600FA0679 /* SectionModelType.swift */,
+				6C5BC6381F69EE2000FA0679 /* TableViewSectionedDataSource.swift */,
+				6C5BC63A1F69EE7500FA0679 /* SectionModel.swift */,
+				6C5BC63C1F69EF2F00FA0679 /* Array+Extensions.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		6C5BC6331F69ECE600FA0679 /* DataSources+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				6C5BC6341F69ED9700FA0679 /* RxTableViewSectionedReloadDataSource.swift */,
+			);
+			name = "DataSources+Rx";
+			sourceTree = "<group>";
+		};
+		6C5BC6401F69F1CB00FA0679 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				6C510E901F63E9B800075C6C /* ClientViewController.swift */,
+				6C5BC62D1F69EB6C00FA0679 /* SearchClientViewController.swift */,
+				6C5BC6411F69F24700FA0679 /* Client.storyboard */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		6C81C7CF1F5F62F0009AF7E6 /* Invoice */ = {
 			isa = PBXGroup;
 			children = (
+				6C5BC6431F69F28500FA0679 /* Invoice.storyboard */,
 				6C86B5121F5FE4CF0046138B /* InvoiceViewController.swift */,
 				6C722E0D1F5FEC5A006DD0DC /* AddOrEditViewController.swift */,
-				6C510E901F63E9B800075C6C /* ClientViewController.swift */,
 				6C3A32581F67E9C600DEC97E /* InvoiceItemViewController.swift */,
+				6C5BC6401F69F1CB00FA0679 /* Client */,
 			);
 			name = Invoice;
 			sourceTree = "<group>";
@@ -227,6 +284,7 @@
 		6CE93F2E1F4C3FCA00FE4BA0 /* InvoiceMachine */ = {
 			isa = PBXGroup;
 			children = (
+				6C5BC6311F69ECC800FA0679 /* RxDataSources */,
 				6CDABACB1F667BFB0088B4B7 /* Helpers */,
 				6C510E841F639E8D00075C6C /* Models */,
 				6CE90BF51F4D7C4E00DCAB2F /* Views */,
@@ -273,6 +331,7 @@
 				6CE93F311F4C3FCA00FE4BA0 /* FirstViewController.swift */,
 				6CE93F6A1F4C4B7500FE4BA0 /* SignInViewController.swift */,
 				6CE433401F4E4231007D1CDE /* MainViewController.swift */,
+				6C5BC62F1F69EBDF00FA0679 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -397,6 +456,8 @@
 				6C510E8F1F63AD2900075C6C /* InvoiceItemCell.xib in Resources */,
 				6CE93F391F4C3FCA00FE4BA0 /* Assets.xcassets in Resources */,
 				6CCFFF801F4D973E00B32520 /* Main.storyboard in Resources */,
+				6C5BC6441F69F28500FA0679 /* Invoice.storyboard in Resources */,
+				6C5BC6421F69F24700FA0679 /* Client.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,21 +657,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5BC6351F69ED9700FA0679 /* RxTableViewSectionedReloadDataSource.swift in Sources */,
 				6C3A325B1F6894E600DEC97E /* ClientCell.swift in Sources */,
 				6CE90BFA1F4D7CC000DCAB2F /* LoadingIndicator.swift in Sources */,
+				6C5BC63D1F69EF2F00FA0679 /* Array+Extensions.swift in Sources */,
 				6C722E0E1F5FEC5A006DD0DC /* AddOrEditViewController.swift in Sources */,
 				6C86B5131F5FE4CF0046138B /* InvoiceViewController.swift in Sources */,
+				6C5BC63B1F69EE7500FA0679 /* SectionModel.swift in Sources */,
 				6C3A32591F67E9C600DEC97E /* InvoiceItemViewController.swift in Sources */,
 				6CE90BF81F4D7C8300DCAB2F /* LoadingIndicatorManager.swift in Sources */,
 				6CE93F6B1F4C4B7500FE4BA0 /* SignInViewController.swift in Sources */,
 				6C510E861F639EB500075C6C /* InvoiceItem.swift in Sources */,
 				6C3A325D1F68951100DEC97E /* Client.swift in Sources */,
+				6C5BC6301F69EBDF00FA0679 /* ViewController.swift in Sources */,
 				6C510E881F639F8200075C6C /* InvoiceItemCell.swift in Sources */,
 				6CE93F341F4C3FCA00FE4BA0 /* SecondViewController.swift in Sources */,
+				6C5BC6391F69EE2000FA0679 /* TableViewSectionedDataSource.swift in Sources */,
 				6CE93F301F4C3FCA00FE4BA0 /* AppDelegate.swift in Sources */,
 				6CE93F321F4C3FCA00FE4BA0 /* FirstViewController.swift in Sources */,
 				6CE433411F4E4231007D1CDE /* MainViewController.swift in Sources */,
+				6C5BC62E1F69EB6C00FA0679 /* SearchClientViewController.swift in Sources */,
 				6C510E911F63E9B800075C6C /* ClientViewController.swift in Sources */,
+				6C5BC6371F69EDE600FA0679 /* SectionModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

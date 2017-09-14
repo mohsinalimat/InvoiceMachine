@@ -14,6 +14,65 @@ class ClientViewController: FormViewController, RowControllerType {
     
     lazy var ref: DatabaseReference = Database.database().reference()
     var client: Client?
+    
+    fileprivate struct RowTags {
+        static let Name = "Name"
+        static let Email = "Email"
+        static let Phone = "Phone"
+        static let Street = "Street"
+        static let Street2 = "Street 2"
+        static let PostCode = "Postal/Zip Code"
+        static let City = "City"
+        static let State = "Province/State"
+    }
+    
+    fileprivate func setTextForRow(_ tag: String, _ value: String?){
+        let textRow: NameRow = form.rowBy(tag: tag)!
+        textRow.value = value
+        textRow.updateCell()
+    }
+    
+    fileprivate func getTextFromRow(_ tag: String) -> String? {
+        let textRow: NameRow = form.rowBy(tag: tag)!
+        let textEntered = textRow.cell.textField.text
+        return textEntered
+    }
+    
+    fileprivate func setEmailForRow(_ tag:String, _ value: String?) {
+        let textRow: EmailRow = form.rowBy(tag: tag)!
+        textRow.value = value
+        textRow.updateCell()
+    }
+    
+    fileprivate func getEmailFromRow(_ tag: String) -> String? {
+        let textRow: EmailRow = form.rowBy(tag: tag)!
+        let textEntered = textRow.cell.textField.text
+        return textEntered
+    }
+    
+    fileprivate func setPhoneForRow(_ tag: String, _ value: String?){
+        let textRow: PhoneRow = form.rowBy(tag: tag)!
+        textRow.value = value
+        textRow.updateCell()
+    }
+    
+    fileprivate func getPhoneFromRow(_ tag: String) -> String? {
+        let textRow: PhoneRow = form.rowBy(tag: tag)!
+        let textEntered = textRow.cell.textField.text
+        return textEntered
+    }
+    
+    fileprivate func setZipCodeForRow(_ tag: String, _ value:String?){
+        let textRow: ZipCodeRow = form.rowBy(tag: tag)!
+        textRow.value = value
+        textRow.updateCell()
+    }
+    
+    fileprivate func getZipCodeFromRow(_ tag: String) -> String? {
+        let textRow: ZipCodeRow = form.rowBy(tag: tag)!
+        let textEntered = textRow.cell.textField.text
+        return textEntered
+    }
 
     @IBAction func saveTapped(_ sender: Any) {
        let validationError =  self.form.validate()
@@ -33,18 +92,18 @@ class ClientViewController: FormViewController, RowControllerType {
             // Create new post at /user-posts/$userid/$postid and at
             // /posts/$postid simultaneously
             // [START write_fan_out]
-            let key = self.client?.id ?? ref.child("clients").childByAutoId().key
+            let key = client?.id ?? ref.child("clients").childByAutoId().key
             self.client?.id = key
          
             let clientUpdate = ["uid": userID,
-                        "name": self.client?.name,
-                        "email": self.client?.email,
-                        "phone": self.client?.phone,
-                        "street": self.client?.street,
-                        "street2": self.client?.street2,
-                        "postCode": self.client?.postCode,
-                        "city": self.client?.city,
-                        "state": self.client?.state]
+                        "name": client?.name,
+                        "email": client?.email,
+                        "phone": client?.phone,
+                        "street": client?.street,
+                        "street2": client?.street2,
+                        "postCode": client?.postCode,
+                        "city": client?.city,
+                        "state": client?.state]
             let childUpdates = ["/user-clients/\(userID ?? "")/\(key)/": clientUpdate]
             ref.updateChildValues(childUpdates)
             self.onDismissCallback?(self)
@@ -53,16 +112,7 @@ class ClientViewController: FormViewController, RowControllerType {
         }
     }
     
-    fileprivate struct RowTags {
-        static let Name = "Name"
-        static let Email = "Email"
-        static let Phone = "Phone"
-        static let Street = "Street"
-        static let Street2 = "Street 2"
-        static let PostCode = "Postal/Zip Code"
-        static let City = "City"
-        static let State = "Province/State"
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +123,14 @@ class ClientViewController: FormViewController, RowControllerType {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setToolbarHidden(false, animated: true)
-        setTextForRow(RowTags.Name, self.client?.name)
+        setTextForRow(RowTags.Name, client?.name)
+        setEmailForRow(RowTags.Email, client?.email)
+        setPhoneForRow(RowTags.Phone, client?.phone)
+        setTextForRow(RowTags.Street, client?.street)
+        setTextForRow(RowTags.Street2, client?.street2)
+        setZipCodeForRow(RowTags.PostCode, client?.postCode)
+        setTextForRow(RowTags.City, client?.city)
+        setTextForRow(RowTags.State, client?.state)
 
     }
     
@@ -128,35 +185,7 @@ class ClientViewController: FormViewController, RowControllerType {
         
     }
     
-    fileprivate func setTextForRow(_ tag: String, _ value: String?){
-        let textRow: NameRow = form.rowBy(tag: tag)!
-        textRow.value = value
-        textRow.updateCell()
-    }
     
-    fileprivate func getTextFromRow(_ tag: String) -> String? {
-        let textRow: NameRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
-    
-    fileprivate func getEmailFromRow(_ tag: String) -> String? {
-        let textRow: EmailRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
-    
-    fileprivate func getPhoneFromRow(_ tag: String) -> String? {
-        let textRow: PhoneRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
-    
-    fileprivate func getZipCodeFromRow(_ tag: String) -> String? {
-        let textRow: ZipCodeRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
