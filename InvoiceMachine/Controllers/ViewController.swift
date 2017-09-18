@@ -9,7 +9,7 @@
 #if !RX_NO_MODULE
     import RxSwift
 #endif
-
+import Firebase
 
 class ViewController: UIViewController {
     #if TRACE_RESOURCES
@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         #if TRACE_RESOURCES
             print("Number of start resources = \(Resources.total)")
         #endif
+    }
+    
+    func getUid() -> String {
+        return (Auth.auth().currentUser?.uid)!
     }
     
     deinit {

@@ -11,6 +11,7 @@ import Foundation
     import RxSwift
     import RxCocoa
 #endif
+import Firebase
 
 extension UIScrollView {
     func  isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
@@ -19,10 +20,13 @@ extension UIScrollView {
 }
 
 class SearchClientViewController: ViewController {
+    
+    lazy var ref: DatabaseReference = Database.database().reference()
+    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var resultsTableView: UITableView!
     @IBOutlet var emptyView: UIView!
-    let client = Client(id: "3232", name: "Test", email: "Huy@gmail.com", phone: "04dd", street: "32323", street2: "fdsfsd", postCode: "fdsf", city: "fds", state: "fdsf")
+    let client1 = Client(id: "3232", name: "Test", email: "Huy@gmail.com", phone: "04dd", street: "32323", street2: "fdsfsd", postCode: "fdsf", city: "fds", state: "fdsf")
     
     
     override func awakeFromNib() {
@@ -33,7 +37,6 @@ class SearchClientViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.edgesForExtendedLayout = .all
         configureTableDataSource()
         configureKeyboardDismissesOnScroll()
@@ -49,7 +52,7 @@ class SearchClientViewController: ViewController {
             .throttle(0.3)
             .distinctUntilChanged()
             .flatMapLatest { [weak self] query in
-                return (self?.getSearchResults(query).startWith(self?.getAllClient() ?? []) // clears results on new search term
+                return (self?.getSearchResults(query).startWith([]) // clears results on new search term
                     .asDriver(onErrorJustReturn: []))!
             }.map { result  in
                 return result
@@ -66,14 +69,26 @@ class SearchClientViewController: ViewController {
             .disposed(by: disposeBag)
     }
     
-    func getAllClient() -> [Client]{
-        return [self.client]
-    }
     
     func getSearchResults(_ query: String) -> Observable<[Client]> {
         
-        let array: Variable<[Client]> = Variable([self.client])
-        return array.asObservable()
+        return (ref.child(FirebaseTableName.userClientTableName).child(getUid())).queryStarting(atValue: query)
+            .queryOrdered(byChild: ClientTablePropertyName.name)
+            .rx_observeSingleEvent(eventType: .value).flatMap({ (snapshot) -> Observable<[Client]> in
+                return Observable.create { observer in
+                    var clients = [Client]()
+                    for snapChild in snapshot.children {
+                        if let snapChild = snapChild as? DataSnapshot {
+                            if let child = Client.init(snapshot: snapChild){
+                                clients.append(child)
+                            }
+                        }
+                    }
+                    observer.onNext(clients)
+                    observer.onCompleted()
+                    return Disposables.create()
+                }
+            })
     }
     
     func configureKeyboardDismissesOnScroll() {
@@ -98,5 +113,6 @@ class SearchClientViewController: ViewController {
             })
             .disposed(by: disposeBag)
     }
+    
     
 }

@@ -44,7 +44,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBAction func signInWithFacebook(_ sender: Any) {
         let loginManager = FBSDKLoginManager()
-        loginManager.logIn(withReadPermissions: ["email"], from: self, handler: { (result, error) in
+        loginManager.logIn(withReadPermissions: [UserTablePropertyName.email], from: self, handler: { (result, error) in
             if let error = error {
                 self.showError(error.localizedDescription)
             } else if result!.isCancelled {
@@ -85,7 +85,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             // [START basic_write]
-            self.ref.child("users").child(user.uid).setValue(["displayName": displayName, "photoURL": photoURL, "email": email])
+            self.ref.child(FirebaseTableName.userTableName).child(user.uid).setValue([UserTablePropertyName.displayName: displayName, UserTablePropertyName.photoURL: photoURL, UserTablePropertyName.email: email])
             // [END basic_write]
             self.performSegue(withIdentifier: Storyboard.mainScreenSegueIdentifier, sender: nil)
 

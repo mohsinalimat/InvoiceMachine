@@ -92,19 +92,19 @@ class ClientViewController: FormViewController, RowControllerType {
             // Create new post at /user-posts/$userid/$postid and at
             // /posts/$postid simultaneously
             // [START write_fan_out]
-            let key = client?.id ?? ref.child("clients").childByAutoId().key
+            let key = client?.id ?? ref.child("user-clients").childByAutoId().key
             self.client?.id = key
          
             let clientUpdate = ["uid": userID,
-                        "name": client?.name,
-                        "email": client?.email,
-                        "phone": client?.phone,
-                        "street": client?.street,
-                        "street2": client?.street2,
-                        "postCode": client?.postCode,
-                        "city": client?.city,
-                        "state": client?.state]
-            let childUpdates = ["/user-clients/\(userID ?? "")/\(key)/": clientUpdate]
+                        ClientTablePropertyName.name: client?.name,
+                        ClientTablePropertyName.email: client?.email,
+                        ClientTablePropertyName.phone: client?.phone,
+                        ClientTablePropertyName.street: client?.street,
+                        ClientTablePropertyName.street2: client?.street2,
+                        ClientTablePropertyName.postCode: client?.postCode,
+                        ClientTablePropertyName.city: client?.city,
+                        ClientTablePropertyName.state: client?.state]
+            let childUpdates = ["/\(FirebaseTableName.userClientTableName)/\(userID ?? "")/\(key)/": clientUpdate]
             ref.updateChildValues(childUpdates)
             self.onDismissCallback?(self)
             // [END write_fan_out]

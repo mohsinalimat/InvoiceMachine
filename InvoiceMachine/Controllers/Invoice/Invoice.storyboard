@@ -59,12 +59,12 @@
                                 <action selector="cancelTapped:" destination="rah-Uk-ace" id="cyz-Pf-xJv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="kSq-Xj-Da6"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kSq-Xj-Da6"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="R47-Ya-rd1" id="sAh-13-gBr"/>
-                        <segue destination="923-HI-LcI" kind="push" identifier="ClientViewControllerSegue" id="hKn-Yl-sww"/>
-                        <segue destination="IGf-pn-y4g" kind="push" identifier="InvoiceItemViewControllerSegue" id="VvQ-MJ-83X"/>
+                        <segue destination="923-HI-LcI" kind="show" identifier="ClientViewControllerSegue" id="hKn-Yl-sww"/>
+                        <segue destination="IGf-pn-y4g" kind="show" identifier="InvoiceItemViewControllerSegue" id="VvQ-MJ-83X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcU-8S-iHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -85,7 +85,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Invoice Item" id="2Dm-2y-Ozl">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="3mY-XU-WAO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3mY-XU-WAO"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDS-X7-aic" userLabel="First Responder" sceneMemberID="firstResponder"/>
