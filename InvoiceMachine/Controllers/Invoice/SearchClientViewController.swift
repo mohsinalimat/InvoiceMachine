@@ -33,6 +33,11 @@ class SearchClientViewController: ViewController {
         super.awakeFromNib()
     }
     
+    fileprivate struct Storyboard{
+        static let InvoiceViewControllerSegueIdentifier = "InvoiceViewControllerSegue"
+    }
+
+    
     // lifecycle
     
     override func viewDidLoad() {
@@ -108,8 +113,8 @@ class SearchClientViewController: ViewController {
         
         resultsTableView.rx.modelSelected(Client.self)
             .asDriver()
-            .drive(onNext: { searchResult in
-                print(searchResult)
+            .drive(onNext: {[weak self] searchResult in
+                self?.performSegue(withIdentifier: Storyboard.InvoiceViewControllerSegueIdentifier, sender: self)
             })
             .disposed(by: disposeBag)
     }

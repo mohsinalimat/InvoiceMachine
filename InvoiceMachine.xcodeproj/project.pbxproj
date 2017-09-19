@@ -24,7 +24,6 @@
 		6C510E911F63E9B800075C6C /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C510E901F63E9B800075C6C /* ClientViewController.swift */; };
 		6C5BC62E1F69EB6C00FA0679 /* SearchClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC62D1F69EB6C00FA0679 /* SearchClientViewController.swift */; };
 		6C5BC6301F69EBDF00FA0679 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5BC62F1F69EBDF00FA0679 /* ViewController.swift */; };
-		6C5BC6421F69F24700FA0679 /* Client.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BC6411F69F24700FA0679 /* Client.storyboard */; };
 		6C5BC6441F69F28500FA0679 /* Invoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C5BC6431F69F28500FA0679 /* Invoice.storyboard */; };
 		6C722E0E1F5FEC5A006DD0DC /* AddOrEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C722E0D1F5FEC5A006DD0DC /* AddOrEditViewController.swift */; };
 		6C86B5131F5FE4CF0046138B /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5121F5FE4CF0046138B /* InvoiceViewController.swift */; };
@@ -84,7 +83,6 @@
 		6C510E901F63E9B800075C6C /* ClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientViewController.swift; path = Invoice/ClientViewController.swift; sourceTree = "<group>"; };
 		6C5BC62D1F69EB6C00FA0679 /* SearchClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchClientViewController.swift; path = Invoice/SearchClientViewController.swift; sourceTree = "<group>"; };
 		6C5BC62F1F69EBDF00FA0679 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6C5BC6411F69F24700FA0679 /* Client.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Client.storyboard; path = Invoice/Client.storyboard; sourceTree = "<group>"; };
 		6C5BC6431F69F28500FA0679 /* Invoice.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Invoice.storyboard; path = Invoice/Invoice.storyboard; sourceTree = "<group>"; };
 		6C722E0D1F5FEC5A006DD0DC /* AddOrEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddOrEditViewController.swift; path = Invoice/AddOrEditViewController.swift; sourceTree = "<group>"; };
 		6C86B5121F5FE4CF0046138B /* InvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvoiceViewController.swift; path = Invoice/InvoiceViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				6C4B878E1F6CEFA0001D0115 /* ViewModels */,
 				6C510E901F63E9B800075C6C /* ClientViewController.swift */,
 				6C5BC62D1F69EB6C00FA0679 /* SearchClientViewController.swift */,
-				6C5BC6411F69F24700FA0679 /* Client.storyboard */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -453,7 +450,6 @@
 				6C4B87931F6CF883001D0115 /* ClientSearchCell.xib in Resources */,
 				6CCFFF801F4D973E00B32520 /* Main.storyboard in Resources */,
 				6C5BC6441F69F28500FA0679 /* Invoice.storyboard in Resources */,
-				6C5BC6421F69F24700FA0679 /* Client.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
