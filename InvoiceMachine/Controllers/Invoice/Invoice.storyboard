@@ -68,11 +68,46 @@
                         <outlet property="tableView" destination="R47-Ya-rd1" id="sAh-13-gBr"/>
                         <segue destination="923-HI-LcI" kind="show" identifier="ClientViewControllerSegue" id="hKn-Yl-sww"/>
                         <segue destination="IGf-pn-y4g" kind="show" identifier="InvoiceItemViewControllerSegue" id="VvQ-MJ-83X"/>
+                        <segue destination="YvS-Fv-YOI" kind="show" identifier="InvoiceDetailsViewControllerSegue" id="Nd3-fR-6oG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcU-8S-iHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1658" y="-1080"/>
+        </scene>
+        <!--Invoice Details-->
+        <scene sceneID="juI-sn-TvC">
+            <objects>
+                <viewController id="YvS-Fv-YOI" customClass="InvoiceDetailsViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xFP-nw-lGH"/>
+                        <viewControllerLayoutGuide type="bottom" id="CvM-eD-1g6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kjC-Ni-cmP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FbM-nm-Jub">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FbM-nm-Jub" firstAttribute="leading" secondItem="kjC-Ni-cmP" secondAttribute="leading" id="KeE-9d-jYN"/>
+                            <constraint firstAttribute="trailing" secondItem="FbM-nm-Jub" secondAttribute="trailing" id="R6M-IU-EKd"/>
+                            <constraint firstItem="CvM-eD-1g6" firstAttribute="top" secondItem="FbM-nm-Jub" secondAttribute="bottom" id="Seb-6P-0q4"/>
+                            <constraint firstItem="FbM-nm-Jub" firstAttribute="top" secondItem="xFP-nw-lGH" secondAttribute="bottom" id="mEc-3D-Uva"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Invoice Details" id="AN0-rd-COP"/>
+                    <connections>
+                        <outlet property="tableView" destination="FbM-nm-Jub" id="0yK-au-QBZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFL-C9-kic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2559" y="-827"/>
         </scene>
         <!--Invoice Item-->
         <scene sceneID="jq8-Sa-6XR">
@@ -93,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDS-X7-aic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2559" y="-677"/>
+            <point key="canvasLocation" x="1951" y="-159"/>
         </scene>
         <!--Client-->
         <scene sceneID="LuZ-VQ-a3U">

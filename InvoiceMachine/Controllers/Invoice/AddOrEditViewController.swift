@@ -35,11 +35,13 @@ class AddOrEditViewController: FormViewController {
     
     fileprivate struct RowTags {
         static let Client = "Client"
+        static let Details = "Details"
     }
     
     fileprivate struct Storyboard{
         static let ClientViewControllerSegueIdentifier = "ClientViewControllerSegue"
         static let InvoiceItemViewControllerSegueIdentifier = "InvoiceItemViewControllerSegue"
+        static let InvoiceDetailsViewControllerSegueIndentifier = "InvoiceDetailsViewControllerSegue"
     }
     
     override func viewDidLoad() {
@@ -73,9 +75,9 @@ class AddOrEditViewController: FormViewController {
             
             +++
             
-            ButtonRow("Details") { row in
+            ButtonRow(RowTags.Details) { row in
                 row.title = row.tag
-                row.presentationMode = .segueName(segueName: "NativeEventsFormNavigationControllerSegue", onDismiss:{  vc in vc.dismiss(animated: true) })
+                row.presentationMode = .segueName(segueName: Storyboard.InvoiceDetailsViewControllerSegueIndentifier, onDismiss:{  vc in vc.dismiss(animated: true) })
             }
             
             +++
