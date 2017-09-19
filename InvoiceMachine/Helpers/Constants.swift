@@ -11,6 +11,8 @@ import Foundation
 struct FirebaseTableName {
     static let userClientTableName = "user-clients"
     static let userTableName = "users"
+    static let userInvoiceTableName = "user-invoices"
+    static let invoiceItemTableName = "invoice-items"
 }
 
 struct UserTablePropertyName {

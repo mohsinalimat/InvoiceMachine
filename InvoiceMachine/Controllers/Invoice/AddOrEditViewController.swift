@@ -18,11 +18,25 @@ class AddOrEditViewController: FormViewController {
     var invoiceItemsRef: DatabaseReference!
     var invoiceKey:String?
     
+    var client:Client? = nil {
+        didSet {
+            let row: ClientRow?  = self.form.rowBy(tag: RowTags.Client)
+            row?.value = client
+            row?.updateCell()
+        }
+        
+    }
+    
     @IBAction func cancelTapped(_ sender: Any) {
         self.dismiss(animated: true) { 
     
         }
     }
+    
+    fileprivate struct RowTags {
+        static let Client = "Client"
+    }
+    
     fileprivate struct Storyboard{
         static let ClientViewControllerSegueIdentifier = "ClientViewControllerSegue"
         static let InvoiceItemViewControllerSegueIdentifier = "InvoiceItemViewControllerSegue"
@@ -30,9 +44,9 @@ class AddOrEditViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        invoiceKey = invoiceKey ?? ref.child("invoices").childByAutoId().key
-        invoiceRef = ref.child("invoices").child(invoiceKey!)
-        invoiceItemsRef = ref.child("invoice-items").child(invoiceKey!)
+        invoiceKey = invoiceKey ?? ref.child(FirebaseTableName.userInvoiceTableName).childByAutoId().key
+        invoiceRef = ref.child(FirebaseTableName.userInvoiceTableName).child(invoiceKey!)
+        invoiceItemsRef = ref.child(FirebaseTableName.invoiceItemTableName).child(invoiceKey!)
         initializeForm()
     }
     
@@ -46,7 +60,7 @@ class AddOrEditViewController: FormViewController {
         
         form +++
             
-            ClientRow("Client") {  row in
+            ClientRow(RowTags.Client) {  row in
                 row.presentationMode = .segueName(segueName: Storyboard.ClientViewControllerSegueIdentifier, onDismiss:{  vc in
                     let clientViewController = vc as! ClientViewController
                     row.value = clientViewController.client

@@ -26,8 +26,6 @@ class SearchClientViewController: ViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var resultsTableView: UITableView!
     @IBOutlet var emptyView: UIView!
-    let client1 = Client(id: "3232", name: "Test", email: "Huy@gmail.com", phone: "04dd", street: "32323", street2: "fdsfsd", postCode: "fdsf", city: "fds", state: "fdsf")
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,7 +37,10 @@ class SearchClientViewController: ViewController {
 
     
     // lifecycle
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = .all
@@ -76,16 +77,17 @@ class SearchClientViewController: ViewController {
     
     
     func getSearchResults(_ query: String) -> Observable<[Client]> {
-        
-        return (ref.child(FirebaseTableName.userClientTableName).child(getUid())).queryStarting(atValue: query)
-            .queryOrdered(byChild: ClientTablePropertyName.name)
+        //TODO: refactor this. setup index on name in firebase
+        return (ref.child(FirebaseTableName.userClientTableName).child(getUid())).queryOrdered(byChild: ClientTablePropertyName.name)
             .rx_observeSingleEvent(eventType: .value).flatMap({ (snapshot) -> Observable<[Client]> in
                 return Observable.create { observer in
                     var clients = [Client]()
                     for snapChild in snapshot.children {
                         if let snapChild = snapChild as? DataSnapshot {
                             if let child = Client.init(snapshot: snapChild){
-                                clients.append(child)
+                                if(child.name?.lowercased().contains(query.lowercased()) ?? false || query.isEmpty){
+                                    clients.append(child)
+                                }
                             }
                         }
                     }
@@ -114,7 +116,12 @@ class SearchClientViewController: ViewController {
         resultsTableView.rx.modelSelected(Client.self)
             .asDriver()
             .drive(onNext: {[weak self] searchResult in
-                self?.performSegue(withIdentifier: Storyboard.InvoiceViewControllerSegueIdentifier, sender: self)
+                for vc in self?.navigationController?.viewControllers ?? [] {
+                    if let viewControler = vc as? AddOrEditViewController {
+                        viewControler.client = searchResult
+                        self?.navigationController?.popToViewController(viewControler, animated: true)
+                    }
+                }
             })
             .disposed(by: disposeBag)
     }

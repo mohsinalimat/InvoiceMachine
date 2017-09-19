@@ -14,7 +14,7 @@ target 'InvoiceMachine' do
   pod 'R.swift'
   pod 'RxCocoa'
   pod 'RxSwift'
-  pod 'Eureka'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Xcode9-Swift3_2'
   pod 'XLSwiftKit'
 
 

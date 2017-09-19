@@ -6,34 +6,38 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - Eureka (3.0.0)
-  - FBSDKCoreKit (4.24.0):
+  - FBSDKCoreKit (4.26.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.24.0):
+  - FBSDKLoginKit (4.26.0):
     - FBSDKCoreKit
-  - Firebase/Auth (4.0.3):
+  - Firebase/Auth (4.1.1):
     - Firebase/Core
-    - FirebaseAuth (= 4.0.0)
-  - Firebase/Core (4.0.3):
-    - FirebaseAnalytics (= 4.0.2)
-    - FirebaseCore (= 4.0.3)
-  - Firebase/Database (4.0.3):
+    - FirebaseAuth (= 4.1.1)
+  - Firebase/Core (4.1.1):
+    - FirebaseAnalytics (= 4.0.3)
+    - FirebaseCore (= 4.0.6)
+  - Firebase/Database (4.1.1):
     - Firebase/Core
-    - FirebaseDatabase (= 4.0.0)
-  - FirebaseAnalytics (4.0.2):
+    - FirebaseDatabase (= 4.0.2)
+  - FirebaseAnalytics (4.0.3):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseAuth (4.0.0):
+    - nanopb (~> 0.3)
+  - FirebaseAuth (4.1.1):
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.3):
+  - FirebaseCore (4.0.6):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseDatabase (4.0.0):
+    - nanopb (~> 0.3)
+  - FirebaseDatabase (4.0.2):
     - FirebaseAnalytics (~> 4.0)
-  - FirebaseInstanceID (2.0.0):
     - FirebaseCore (~> 4.0)
-  - GoogleSignIn (4.0.2):
+    - leveldb-library (~> 1.18)
+  - FirebaseInstanceID (2.0.2):
+    - FirebaseCore (~> 4.0)
+  - GoogleSignIn (4.1.0):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
     - GTMOAuth2 (~> 1.0)
@@ -48,24 +52,32 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMOAuth2 (1.1.4):
+  - GTMOAuth2 (1.1.5):
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.1.10):
-    - GTMSessionFetcher/Full (= 1.1.10)
-  - GTMSessionFetcher/Core (1.1.10)
-  - GTMSessionFetcher/Full (1.1.10):
-    - GTMSessionFetcher/Core (= 1.1.10)
-  - NVActivityIndicatorView (3.6.1)
+  - GTMSessionFetcher (1.1.11):
+    - GTMSessionFetcher/Full (= 1.1.11)
+  - GTMSessionFetcher/Core (1.1.11)
+  - GTMSessionFetcher/Full (1.1.11):
+    - GTMSessionFetcher/Core (= 1.1.11)
+  - leveldb-library (1.18.3)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - NVActivityIndicatorView (3.7.0):
+    - NVActivityIndicatorView/Presenter (= 3.7.0)
+  - NVActivityIndicatorView/Presenter (3.7.0)
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
-  - RxCocoa (3.5.0):
-    - RxSwift (~> 3.4)
-  - RxSwift (3.5.0)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
   - XLSwiftKit (2.0.1)
 
 DEPENDENCIES:
-  - Eureka
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `Xcode9-Swift3_2`)
   - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Database
@@ -76,28 +88,40 @@ DEPENDENCIES:
   - RxSwift
   - XLSwiftKit
 
+EXTERNAL SOURCES:
+  Eureka:
+    :branch: Xcode9-Swift3_2
+    :git: https://github.com/xmartlabs/Eureka.git
+
+CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 170433bedb6db4228da60eb6c866156b6b29e666
+    :git: https://github.com/xmartlabs/Eureka.git
+
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Eureka: f36fd440c3ebb7bfea0a4fbe6f16a05f1cb35906
-  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
-  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
-  Firebase: 9e33fdfbca37cab635c693883caa90a4475b842b
-  FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
-  FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
-  FirebaseCore: c709067051de07bdaffdc4e735cd7299a23c463a
-  FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
-  GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
+  Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
+  FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
+  FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
+  Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
+  FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
+  FirebaseAuth: f8b07aa83de60d606b4eadd81484b3ac2097ea3e
+  FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
+  FirebaseDatabase: 4d1a10639a42cae26e094296951b53c689e5e191
+  FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
+  GoogleSignIn: 8c599fc10d25b2af86a3f82fd9631e863f2b1400
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
-  GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
-  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
+  GTMOAuth2: be83fd28d63ae3087e7d351b1f39c1a7e24ab6e7
+  GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
-  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   XLSwiftKit: aaf29528b340180a5d7b9c7e226c0e8fe188f3f5
 
-PODFILE CHECKSUM: 4b67c7fa69bdbaeb7de10be2da9de39de3efd3b8
+PODFILE CHECKSUM: abb917f059013929cff344381cbfffa90c767a6a
 
 COCOAPODS: 1.3.1

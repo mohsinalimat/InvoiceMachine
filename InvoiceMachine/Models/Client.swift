@@ -34,8 +34,7 @@ struct Client: Equatable {
         self.state = dict["state"] ?? ""
     }
     
-    init(id: String, name: String, email: String, phone: String, street: String, street2: String, postCode: String, city: String, state: String){
-        self.id = id
+    init( name: String, email: String, phone: String, street: String, street2: String, postCode: String, city: String, state: String){
         self.name = name
         self.email = email
         self.phone = phone
@@ -47,7 +46,7 @@ struct Client: Equatable {
     }
     
     init() {
-        self.init(id: "", name: "", email: "", phone: "", street: "", street2: "", postCode: "", city: "", state: "")
+        self.init(name: "", email: "", phone: "", street: "", street2: "", postCode: "", city: "", state: "")
     }
 }
 
