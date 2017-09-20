@@ -18,20 +18,57 @@ class InvoiceDetailsViewController:FormViewController  {
         // Do any additional setup after loading the view.
         initializeForm()
     }
+    
+    fileprivate struct RowTags {
+        static let InvoiceNumber = "Invoice number"
+        static let IssueDate = "Issue date"
+        static let DueDate = "Due date"
+        static let Reference = "Reference"
+        static let Introduction = "Introduction/Salutatioin"
+        static let Note = "Note"
+    }
     private func initializeForm() {
         
         form +++
             
-            ClientRow("Client") {  row in
-                row.presentationMode = .segueName(segueName: "fd", onDismiss:{  vc in
-                    let clientViewController = vc as! ClientViewController
-                    row.value = clientViewController.client
-                    row.updateCell()
-                    vc.navigationController?.popViewController(animated: true)
-                    
-                })
+            TextRow(RowTags.InvoiceNumber) {
+                $0.title = $0.tag
+                }.cellSetup { cell, _  in
+                    cell.textField.keyboardType = .numbersAndPunctuation
+                }
+            <<< DateRow(RowTags.IssueDate){
+                $0.title = $0.tag
+                $0.value = Date()
+                let formatter = DateFormatter()
+                formatter.locale = .current
+                formatter.dateStyle = .medium
+                $0.dateFormatter = formatter
+            }
+            <<< DateRow(RowTags.DueDate){
+                $0.title = $0.tag
+                $0.value = Date()
+                let formatter = DateFormatter()
+                formatter.locale = .current
+                formatter.dateStyle = .medium
+                $0.dateFormatter = formatter
+            }
+            
+            +++
+            
+            TextRow(RowTags.Reference) {
+                $0.title = $0.tag
                 
-        }
+                }.cellSetup { cell, _  in
+                    cell.textField.keyboardType = .numberPad
+            }
+            
+            +++
+            
+            TextRow(RowTags.Introduction) {
+                $0.placeholder = $0.tag
+                
+            }
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -88,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FbM-nm-Jub">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -97,10 +97,12 @@
                             <constraint firstItem="FbM-nm-Jub" firstAttribute="leading" secondItem="kjC-Ni-cmP" secondAttribute="leading" id="KeE-9d-jYN"/>
                             <constraint firstAttribute="trailing" secondItem="FbM-nm-Jub" secondAttribute="trailing" id="R6M-IU-EKd"/>
                             <constraint firstItem="CvM-eD-1g6" firstAttribute="top" secondItem="FbM-nm-Jub" secondAttribute="bottom" id="Seb-6P-0q4"/>
-                            <constraint firstItem="FbM-nm-Jub" firstAttribute="top" secondItem="xFP-nw-lGH" secondAttribute="bottom" id="mEc-3D-Uva"/>
+                            <constraint firstItem="FbM-nm-Jub" firstAttribute="top" secondItem="xFP-nw-lGH" secondAttribute="bottom" constant="-64" id="mEc-3D-Uva"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Invoice Details" id="AN0-rd-COP"/>
+                    <navigationItem key="navigationItem" title="Invoice Details" id="AN0-rd-COP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XlH-pr-czX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="FbM-nm-Jub" id="0yK-au-QBZ"/>
                     </connections>

@@ -43,6 +43,7 @@ class SearchClientViewController: ViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref.keepSynced(true)
         self.edgesForExtendedLayout = .all
         configureTableDataSource()
         configureKeyboardDismissesOnScroll()
