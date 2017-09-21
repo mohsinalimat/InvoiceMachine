@@ -27,6 +27,13 @@ class InvoiceDetailsViewController:FormViewController  {
         static let Introduction = "Introduction/Salutatioin"
         static let Note = "Note"
     }
+    
+    // lifecycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    
     private func initializeForm() {
         
         form +++
