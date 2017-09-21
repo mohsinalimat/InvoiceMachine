@@ -105,11 +105,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="FbM-nm-Jub" id="0yK-au-QBZ"/>
+                        <segue destination="v2C-qk-Z5V" kind="show" identifier="CompanyInforViewControllerSegue" id="6K4-94-zBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFL-C9-kic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2559" y="-827"/>
+        </scene>
+        <!--Company-->
+        <scene sceneID="Zpj-wG-v09">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hos-Pm-IZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Company" id="v2C-qk-Z5V" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="3242" y="-828"/>
         </scene>
         <!--Invoice Item-->
         <scene sceneID="jq8-Sa-6XR">

@@ -1,28 +1,16 @@
 //
-//  InvoiceDetails.swift
+//  CompanyInfoViewController.swift
 //  InvoiceMachine
 //
-//  Created by Huy Ta on 9/20/17.
+//  Created by Huy Ta on 9/21/17.
 //  Copyright © 2017 njen. All rights reserved.
 //
 
 import UIKit
 import Eureka
-import Firebase
 
-class InvoiceDetailsViewController:FormViewController  {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        initializeForm()
-    }
-    fileprivate struct Storyboard{
-        static let CompanyInforViewControllerSegueIdentifier = "CompanyInforViewControllerSegue"
-       
-    }
-    
+
+class CompanyInfoViewController: FormViewController {
     
     fileprivate struct RowTags {
         static let InvoiceNumber = "Invoice number"
@@ -33,11 +21,22 @@ class InvoiceDetailsViewController:FormViewController  {
         static let Note = "Note"
         static let Company = "Your company"
     }
-    
-    // lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setToolbarHidden(true, animated: true)
+
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true) {
+            print("done")
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        initializeForm()
+
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     private func initializeForm() {
@@ -48,7 +47,7 @@ class InvoiceDetailsViewController:FormViewController  {
                 $0.title = $0.tag
                 }.cellSetup { cell, _  in
                     cell.textField.keyboardType = .numbersAndPunctuation
-                }
+            }
             <<< DateRow(RowTags.IssueDate){
                 $0.title = $0.tag
                 $0.value = Date()
@@ -85,35 +84,30 @@ class InvoiceDetailsViewController:FormViewController  {
                 $0.placeholder = $0.tag
                 
             }
-           +++
-        
+            +++
+            
             ButtonRow(RowTags.Company) {  row in
                 row.title = row.tag
-                row.presentationMode = .segueName(segueName: Storyboard.CompanyInforViewControllerSegueIdentifier, onDismiss:{  vc in
+                row.presentationMode = .segueName(segueName: "", onDismiss:{  vc in
                     row.updateCell()
                     vc.navigationController?.popViewController(animated: true)
-                
+                    
                 })
-            
-            }
+                
+        }
         
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
