@@ -69,6 +69,7 @@
                         <segue destination="923-HI-LcI" kind="show" identifier="ClientViewControllerSegue" id="hKn-Yl-sww"/>
                         <segue destination="IGf-pn-y4g" kind="show" identifier="InvoiceItemViewControllerSegue" id="VvQ-MJ-83X"/>
                         <segue destination="YvS-Fv-YOI" kind="show" identifier="InvoiceDetailsViewControllerSegue" id="Nd3-fR-6oG"/>
+                        <segue destination="ls2-VB-Vzs" kind="show" identifier="InvoicePreviewViewControllerSegue" id="7EN-Vw-r4r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcU-8S-iHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,8 +116,8 @@
         <!--Company-->
         <scene sceneID="Zpj-wG-v09">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hos-Pm-IZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Company" id="v2C-qk-Z5V" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hos-Pm-IZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3242" y="-828"/>
         </scene>
@@ -140,6 +141,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDS-X7-aic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1951" y="-159"/>
+        </scene>
+        <!--Invoice Preview View Controller-->
+        <scene sceneID="tZG-Av-FFH">
+            <objects>
+                <viewController id="ls2-VB-Vzs" customClass="InvoicePreviewViewController" customModule="InvoiceMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jYN-pn-4gO"/>
+                        <viewControllerLayoutGuide type="bottom" id="RL6-kN-djS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jE3-Ja-EmN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U1X-F3-apr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="-1766"/>
         </scene>
         <!--Client-->
         <scene sceneID="LuZ-VQ-a3U">

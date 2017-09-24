@@ -12,6 +12,7 @@ struct FirebaseTableName {
     static let userClientTableName = "user-clients"
     static let userTableName = "users"
     static let userInvoiceTableName = "user-invoices"
+    static let userCompanyTableName = "user-company"
     static let invoiceItemTableName = "invoice-items"
 }
 
@@ -30,4 +31,19 @@ struct ClientTablePropertyName {
     static let postCode = "postCode"
     static let city = "city"
     static let state = "state"
+}
+struct CompanyTablePropertyName {
+    static let name = "name"
+    static let abn = "abn"
+    static let acn = "acn"
+    static let other = "other"
+    static let street = "street"
+    static let street2 = "street2"
+    static let postCode = "postCode"
+    static let city = "city"
+    static let state = "state"
+    static let phone = "phone"
+    static let fax = "fax"
+    static let email = "email"
+    static let website = "website"
 }

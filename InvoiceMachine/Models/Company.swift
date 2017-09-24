@@ -1,14 +1,14 @@
 //
-//  Client.swift
+//  Company.swift
 //  InvoiceMachine
 //
-//  Created by Huy Ta on 9/13/17.
+//  Created by Huy Ta on 9/25/17.
 //  Copyright © 2017 njen. All rights reserved.
 //
 
 import Foundation
 import Firebase
-struct Client: Equatable {
+struct Company: Equatable {
     
     var id: String?
     var name: String?
@@ -19,7 +19,13 @@ struct Client: Equatable {
     var postCode: String?
     var city: String?
     var state: String?
+    var fax: String?
+    var website: String?
+    var abn: String?
+    var acn: String?
+    var other: String?
     
+  
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String: String] else { return nil }
         
@@ -32,9 +38,14 @@ struct Client: Equatable {
         self.postCode = dict["postCode"] ?? ""
         self.city = dict["city"] ?? ""
         self.state = dict["state"] ?? ""
+        self.fax = dict["fax"] ?? ""
+        self.website = dict["website"] ?? ""
+        self.abn = dict["abn"] ?? ""
+        self.acn = dict["acn"] ?? ""
+        self.other = dict["other"] ?? ""
     }
     
-    init( name: String, email: String, phone: String, street: String, street2: String, postCode: String, city: String, state: String){
+    init( name: String, email: String, phone: String, street: String, street2: String, postCode: String, city: String, state: String, fax: String, website: String, abn: String, acn: String, other: String){
         self.name = name
         self.email = email
         self.phone = phone
@@ -46,11 +57,14 @@ struct Client: Equatable {
     }
     
     init() {
-        self.init(name: "", email: "", phone: "", street: "", street2: "", postCode: "", city: "", state: "")
+        self.init(name: "", email: "", phone: "", street: "", street2: "", postCode: "", city: "", state: "", fax: "", website: "", abn: "", acn: "", other: "")
     }
 }
 
 
-func ==(lhs: Client, rhs: Client) -> Bool {
+
+
+func ==(lhs: Company, rhs: Company) -> Bool {
     return lhs.id == rhs.id
 }
+

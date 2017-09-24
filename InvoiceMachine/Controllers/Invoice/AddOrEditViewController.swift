@@ -42,6 +42,7 @@ class AddOrEditViewController: FormViewController {
         static let ClientViewControllerSegueIdentifier = "ClientViewControllerSegue"
         static let InvoiceItemViewControllerSegueIdentifier = "InvoiceItemViewControllerSegue"
         static let InvoiceDetailsViewControllerSegueIndentifier = "InvoiceDetailsViewControllerSegue"
+        static let InvoicePreviewViewControllerSegueIdentifier = "InvoicePreviewViewControllerSegue"
     }
     
     override func viewDidLoad() {
@@ -126,7 +127,7 @@ class AddOrEditViewController: FormViewController {
             
             ButtonRow("Preview") { row in
                 row.title = row.tag
-                row.presentationMode = .segueName(segueName: "NativeEventsFormNavigationControllerSegue", onDismiss:{  vc in vc.dismiss(animated: true) })
+                row.presentationMode = .segueName(segueName: Storyboard.InvoicePreviewViewControllerSegueIdentifier, onDismiss:{  vc in vc.dismiss(animated: true) })
         }
         
     }

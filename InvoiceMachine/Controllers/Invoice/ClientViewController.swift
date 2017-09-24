@@ -26,53 +26,7 @@ class ClientViewController: FormViewController, RowControllerType {
         static let State = "Province/State"
     }
     
-    fileprivate func setTextForRow(_ tag: String, _ value: String?){
-        let textRow: NameRow = form.rowBy(tag: tag)!
-        textRow.value = value
-        textRow.updateCell()
-    }
     
-    fileprivate func getTextFromRow(_ tag: String) -> String? {
-        let textRow: NameRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
-    
-    fileprivate func setEmailForRow(_ tag:String, _ value: String?) {
-        let textRow: EmailRow = form.rowBy(tag: tag)!
-        textRow.value = value
-        textRow.updateCell()
-    }
-    
-    fileprivate func getEmailFromRow(_ tag: String) -> String? {
-        let textRow: EmailRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
-    
-    fileprivate func setPhoneForRow(_ tag: String, _ value: String?){
-        let textRow: PhoneRow = form.rowBy(tag: tag)!
-        textRow.value = value
-        textRow.updateCell()
-    }
-    
-    fileprivate func getPhoneFromRow(_ tag: String) -> String? {
-        let textRow: PhoneRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
-    
-    fileprivate func setZipCodeForRow(_ tag: String, _ value:String?){
-        let textRow: ZipCodeRow = form.rowBy(tag: tag)!
-        textRow.value = value
-        textRow.updateCell()
-    }
-    
-    fileprivate func getZipCodeFromRow(_ tag: String) -> String? {
-        let textRow: ZipCodeRow = form.rowBy(tag: tag)!
-        let textEntered = textRow.cell.textField.text
-        return textEntered
-    }
 
     @IBAction func saveTapped(_ sender: Any) {
        let validationError =  self.form.validate()
@@ -89,8 +43,7 @@ class ClientViewController: FormViewController, RowControllerType {
             let userID = Auth.auth().currentUser?.uid
 
             
-            // Create new post at /user-posts/$userid/$postid and at
-            // /posts/$postid simultaneously
+            // Create new post at /user-clients/$userid/$clientId and at
             // [START write_fan_out]
             let key = client?.id ?? ref.child("user-clients").childByAutoId().key
             self.client?.id = key
